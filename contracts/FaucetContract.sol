@@ -10,24 +10,45 @@ contract Faucet {
     // External function is part of the contract interface
     // which means they can be called via contracts and other transactions
 
-    address[] public funders;
+    uint public numOfFunders;
+    mapping(address => bool) private funders;
+    mapping(uint => address) private lutFunders;
 
     receive() external payable {}
+
     function addFunds() external payable {
-        funders.push(msg.sender);
+        // uint index = numOfFunders++;
+        // funders[index] = msg.sender;
+        address funder = msg.sender;
+        if (!funders[funder]) {
+            uint index = numOfFunders++;
+            funders[funder] = true;
+            lutFunders[index] = funder;
+        }
     }
 
-    function getAllFunders() public view returns (address[] memory) {
-        return funders;
+    function getAllFunders() external view returns (address[] memory) {
+        address[] memory _funders = new address[](numOfFunders);
+
+        for (uint i = 0; i < numOfFunders; i++) {
+            _funders[i] = lutFunders[i];
+        }
+
+        return _funders;
     }
+
+    // function getAllFunders() public view returns (address[] memory) {
+    //     return funders;
+    // }
 
     function getFunderAtIndex(uint8 index) external view returns (address) {
-        address[] memory _funders = getAllFunders();
-        return _funders[index];
+        // address[] memory _funders = getAllFunders();
+        return lutFunders[index];
     }
 
     // const instance = await Faucet.deployed()
-    // instance.addFunds({from: accounts[0], value: "2"})
+    // instance.addFunds({from: accounts[0], value: "20000000000"})
+    // instance.getFunderAtIndex(1)
 
     // function justTesting() external pure returns(uint) {
     //     return 2 + 2;
