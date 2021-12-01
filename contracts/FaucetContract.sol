@@ -10,12 +10,28 @@ contract Faucet {
     // External function is part of the contract interface
     // which means they can be called via contracts and other transactions
 
-    receive() external payable {}
-    function addFunds() external payable {}
+    address[] public funders;
 
-    function justTesting() external pure returns(uint) {
-        return 2 + 2;
+    receive() external payable {}
+    function addFunds() external payable {
+        funders.push(msg.sender);
     }
+
+    function getAllFunders() public view returns (address[] memory) {
+        return funders;
+    }
+
+    function getFunderAtIndex(uint8 index) external view returns (address) {
+        address[] memory _funders = getAllFunders();
+        return _funders[index];
+    }
+
+    // const instance = await Faucet.deployed()
+    // instance.addFunds({from: accounts[0], value: "2"})
+
+    // function justTesting() external pure returns(uint) {
+    //     return 2 + 2;
+    // }
 
     // pure, view - read-only call, no gas fee
     // view - it indicates that the function will not alter the storage state in any way
