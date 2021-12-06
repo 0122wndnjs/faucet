@@ -53,6 +53,8 @@ contract Faucet is Owned, Logger, IFaucet {
         // uint index = numOfFunders++;
         // funders[index] = msg.sender;
         address funder = msg.sender;
+        test3();
+        
         if (!funders[funder]) {
             uint index = numOfFunders++;
             funders[funder] = true;
