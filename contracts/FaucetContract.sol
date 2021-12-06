@@ -2,8 +2,9 @@
 pragma solidity >=0.4.22 <0.9.0;
 
 import "./Owned.sol";
+import "./Logger.sol";
 
-contract Faucet is Owned {
+contract Faucet is Owned, Logger {
 
     // this is a special function
     // it's called when you make a transaction that doesn't specify 
@@ -35,6 +36,10 @@ contract Faucet is Owned {
             "Cannot withdraw more than 0.1 ether"
         );
         _;
+    }
+
+    function emitLog() public override pure returns(bytes32) {
+        return "Hello World";
     }
 
     receive() external payable {}
