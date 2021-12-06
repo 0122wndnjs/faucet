@@ -1,7 +1,9 @@
 // SPDX-License-Identifier: MIT
 pragma solidity >=0.4.22 <0.9.0;
 
-contract Faucet {
+import "./Owned.sol";
+
+contract Faucet is Owned {
 
     // this is a special function
     // it's called when you make a transaction that doesn't specify 
@@ -11,17 +13,35 @@ contract Faucet {
     // which means they can be called via contracts and other transactions
 
     uint public numOfFunders;
+    // address public owner;
     mapping(address => bool) private funders;
     mapping(uint => address) private lutFunders;
 
+    // constructor() {
+    //     owner = msg.sender;
+    // }
+
+    // modifier onlyOwner {
+    //     require(
+    //         msg.sender == owner,
+    //         "Only owner can call this function"
+    //     );
+    //     _;
+    // }
+
     modifier limitWithdraw(uint withdrawAmount) {
-        require(withdrawAmount <= 100000000000000000, 
-        "Cannot withdraw more than 0.1 ether"
+        require(
+            withdrawAmount <= 100000000000000000, 
+            "Cannot withdraw more than 0.1 ether"
         );
         _;
     }
 
     receive() external payable {}
+
+    // function transferOwnership(address newOwner) external onlyOwner{
+    //     owner = newOwner;
+    // }
 
     function addFunds() external payable {
         // uint index = numOfFunders++;
@@ -32,6 +52,14 @@ contract Faucet {
             funders[funder] = true;
             lutFunders[index] = funder;
         }
+    }
+
+    function test1() external onlyOwner {
+        // some managing stuff that only admin should have access to
+    }
+
+    function test2() external onlyOwner{
+        // some managing stuff that only admin should have access to
     }
 
     function withdraw(uint withdrawAmount) external limitWithdraw(withdrawAmount) {
