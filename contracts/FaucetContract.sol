@@ -3,8 +3,9 @@ pragma solidity >=0.4.22 <0.9.0;
 
 import "./Owned.sol";
 import "./Logger.sol";
+import "./IFaucet.sol";
 
-contract Faucet is Owned, Logger {
+contract Faucet is Owned, Logger, IFaucet {
 
     // this is a special function
     // it's called when you make a transaction that doesn't specify 
@@ -48,7 +49,7 @@ contract Faucet is Owned, Logger {
     //     owner = newOwner;
     // }
 
-    function addFunds() external payable {
+    function addFunds() override external payable {
         // uint index = numOfFunders++;
         // funders[index] = msg.sender;
         address funder = msg.sender;
@@ -67,7 +68,7 @@ contract Faucet is Owned, Logger {
         // some managing stuff that only admin should have access to
     }
 
-    function withdraw(uint withdrawAmount) external limitWithdraw(withdrawAmount) {
+    function withdraw(uint withdrawAmount) override external limitWithdraw(withdrawAmount) {
         // require(withdrawAmount <= 100000000000000000, "Cannot withdraw more than 0.1 ether");
         // if (withdrawAmount < 1000000000000000000) {
         payable(msg.sender).transfer(withdrawAmount);
