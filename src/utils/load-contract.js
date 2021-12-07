@@ -8,7 +8,7 @@ export const loadContract = async (name, provider) => {
     const _contract = contract(Artifact)
     _contract.setProvider(provider)
 
-    const deployedContract = await _contract.deployed()
+    const deployedContract = await _contract.deployed() 
 
     return _contract
 }
