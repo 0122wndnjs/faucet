@@ -4,21 +4,19 @@
   "private": true,
   "dependencies": {
     "@metamask/detect-provider": "^1.2.0",
-    "@testing-library/jest-dom": "^5.11.4",
-    "@testing-library/react": "^11.1.0",
-    "@testing-library/user-event": "^12.1.10",
-    "@truffle/contract": "^4.3.43",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
+    "@truffle/contract": "^4.3.31",
     "bulma": "^0.9.3",
-<<<<<<< HEAD
     "ethereumjs-tx": "^2.1.2",
-    "ethereumjs-util": "^7.1.3",
-=======
->>>>>>> d05d5204d825c3aae941371fa19b055954d39aee
+    "ethereumjs-util": "^7.1.0",
+    "merkle-patricia-tree": "^4.2.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-scripts": "^3.4.4",
-    "web-vitals": "^1.0.1",
-    "web3": "^1.6.1"
+    "react-scripts": "4.0.3",
+    "web-vitals": "^1.1.2",
+    "web3": "^1.5.2"
   },
   "scripts": {
     "start": "react-scripts start",
