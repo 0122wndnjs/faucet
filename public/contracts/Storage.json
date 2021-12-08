@@ -4130,12 +4130,21 @@
     "5777": {
       "events": {},
       "links": {},
+<<<<<<< HEAD:public/contracts/Storage.json
       "address": "0xD6C100CA9731FDb26b939812e30252490F2B4C93",
       "transactionHash": "0xfe0b45531513b2d5b7dc1e207f125ecf9b55c7548492f9ed4297f739a59aae3b"
     }
   },
   "schemaVersion": "3.4.3",
   "updatedAt": "2021-12-07T07:07:22.475Z",
+=======
+      "address": "0x846928Ef2eB500DDDf1C84daA1dA158f69db1cDF",
+      "transactionHash": "0x7c8a2cac979f7293da279f7ba2ee3d9deefaeeea33cb1449b85fe00f2aa12ca6"
+    }
+  },
+  "schemaVersion": "3.4.3",
+  "updatedAt": "2021-12-07T02:36:55.650Z",
+>>>>>>> d05d5204d825c3aae941371fa19b055954d39aee:build/contracts/Storage.json
   "networkType": "ethereum",
   "devdoc": {
     "kind": "dev",

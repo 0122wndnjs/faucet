@@ -9,8 +9,11 @@
     "@testing-library/user-event": "^12.1.10",
     "@truffle/contract": "^4.3.43",
     "bulma": "^0.9.3",
+<<<<<<< HEAD
     "ethereumjs-tx": "^2.1.2",
     "ethereumjs-util": "^7.1.3",
+=======
+>>>>>>> d05d5204d825c3aae941371fa19b055954d39aee
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-scripts": "^3.4.4",
